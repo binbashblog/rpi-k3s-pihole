@@ -26,17 +26,17 @@ spec:
            containerPort: 80
         env:
         - name: TZ
-          value: "Europe/London"
+          value: "Europe/London" # change to your TZ
         - name: WEBPASSWORD
-          value: "secret"
+          value: "secret" # change 
         - name: DNS1
-          value: '1.2.3.4'
+          value: '1.2.3.4' # change to your upsteam dns server
         - name: DNS2
-          value: '8.8.4.4'
+          value: '8.8.4.4' # change to your upstream dns server
         - name: DNS3
-          value: '1.1.1.1'
+          value: '1.1.1.1' # set to your preferred failsafe in case above two fail or just change to a 3rd upstream (or just delete the entry)
         - name: DNS4
-          value: '8.8.8.8'
+          value: '8.8.8.8' # set to your preferred failsafe in case above two fail or just change to a 4th upstream (or just delete the entry)
         volumeMounts:
         - name: pihole-nfs-etc-volume
           mountPath: "/etc/pihole"
