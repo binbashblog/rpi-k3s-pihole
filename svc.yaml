@@ -1,0 +1,40 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole-svc
+  namespace: pihole
+spec:
+  selector:
+    app: pihole
+  ports:
+  - name: http-port
+    port: 8001
+    targetPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pihole
+  namespace: pihole
+spec:
+  selector:
+    app: pihole
+  ports:
+  - name: dns-tcp
+    #  nodePort: 53
+    port: 53
+    protocol: TCP
+    targetPort: 53
+  - name: dns-udp
+    #    nodePort: 53
+    port: 53
+    protocol: UDP
+    targetPort: 53
+  externalIPs: # in future change to use cluster ip instead
+  - # add your k3s node server ip's here
+  - # add your k3s node server ip's here
+  - # add your k3s node server ip's here
+  - # add your k3s node server ip's here
+  selector:
+    app: pihole
