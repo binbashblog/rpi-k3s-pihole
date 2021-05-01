@@ -1,0 +1,30 @@
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pihole-etc-pv
+  labels:
+    name: pihole-etc-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: <ip_of_nfs_server> # change
+    path: /k3s/pihole/etc # change
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pihole-dnsmasq-pv
+  labels:
+    name: pihole-dnsmasq-pv
+spec:
+  capacity:
+    storage: 1Gi
+  accessModes:
+    - ReadWriteOnce
+  nfs:
+    server: <ip_of_nfs_server> # change
+    path: /k3s/pihole/dnsmasq # change
